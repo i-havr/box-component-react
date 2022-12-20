@@ -4,6 +4,7 @@ import { Text } from 'components/Text/Text.styled';
 import { Button } from 'components/Button/Button';
 import { Box } from 'components/Box';
 import { AppBar } from 'components/AppBar/AppBar';
+import { DropDown } from 'components/DropDown/DropDown';
 
 export const App = () => {
   return (
@@ -23,6 +24,9 @@ export const App = () => {
         <Button type="submit" disabled>
           LogIn
         </Button>
+      </Box>
+      <Box>
+        <DropDown />
       </Box>
     </Box>
   );
