@@ -16,8 +16,21 @@ class App extends Component {
     todos: initialTodos,
   };
 
+  deleteTodo = todoId => {
+    this.setState(prevState => ({
+      todos: prevState.todos.filter(todo => todo.id !== todoId),
+    }));
+  };
+
   render() {
     const { todos } = this.state;
+
+    const totalTodoCount = todos.length;
+    const completedTodosCount = todos.reduce(
+      (acc, todo) => (todo.completed ? acc + 1 : acc),
+      0
+    );
+
     return (
       <Box position="relative" as="main" m="4">
         <AppBar />
@@ -44,7 +57,11 @@ class App extends Component {
         </Box>
         <Box>
           <h2>Состояние компонента</h2>
-          <TodoList todos={todos} />
+          <div>
+            <p>Total: {totalTodoCount}</p>
+            <p>Not completed: {completedTodosCount}</p>
+          </div>
+          <TodoList todos={todos} onDeleteTodo={this.deleteTodo} />
         </Box>
       </Box>
     );

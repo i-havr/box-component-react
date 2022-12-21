@@ -1,5 +1,6 @@
 .ColorPicker {
   width: 400px;
+  margin-bottom: 40px;
   padding: 10px;
   border: 1px solid black;
 }
